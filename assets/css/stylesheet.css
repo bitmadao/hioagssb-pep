@@ -1,0 +1,17 @@
+.warning{
+	color: red ;	
+}
+.tip{
+	color: lightblue ;
+}
+.hidden{
+	display:none ;
+}
+/*#antallPaameldteBar{
+	position:absolute ;
+	margin-left: 30em ;
+	list-style-type: none ;
+}*/
+.tiers{
+	display:inline-block ;
+}
