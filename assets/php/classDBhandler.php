@@ -6,7 +6,7 @@
 		}//slutt logDBerror
 		
 		static function dbConnect(){
-			$Link = new mysqli('localhost', 'root', 'Password.', 'defaultDB') ;
+			$Link = new mysqli('hostname', 'username', 'password', 'defaultDB') ;
 			if($Link->connect_error){
 				self::logDBerror($Link->connect_error) ;
 				die('Får ikke kontakt med server, sorry brwaa') ;
