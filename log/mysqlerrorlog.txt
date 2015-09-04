@@ -1,0 +1,13 @@
+29-03-2015 21:19 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"pedro"' at line 1
+29-03-2015 21:19 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"s202020@stud.hioa.no"' at line 1
+10-04-2015 18:52 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '("2", "Tier , Brawl-カ"), ("2", "Tier , Brawl-キ"), ("2", "Tier , Brawl-ク"),' at line 1
+10-04-2015 18:52 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '("2", "Tier 2, Brawl-カ"), ("2", "Tier 2, Brawl-キ"), ("2", "Tier 2, Brawl-ク' at line 1
+10-04-2015 18:55 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '("2", "Tier 2, Brawl-カ"), ("2", "Tier 2, Brawl-キ"), ("2", "Tier 2, Brawl-ク' at line 1
+10-04-2015 18:55 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '("2", "Tier 2, Brawl-カ"), ("2", "Tier 2, Brawl-キ"), ("2", "Tier 2, Brawl-ク' at line 1
+10-04-2015 18:58 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '("2", "Tier 2, Brawl-カ"), ("2", "Tier 2, Brawl-キ"), ("2", "Tier 2, Brawl-ク' at line 1
+10-04-2015 19:00 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '("2", "Tier 2, Brawl-カ"), ("2", "Tier 2, Brawl-キ"), ("2", "Tier 2, Brawl-ク' at line 1
+10-04-2015 19:03 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '("1", "Tier 1, Brawl-キ")("1", "Tier 1, Brawl-ク")("1", "Tier 1, Brawl-ケ")("' at line 1
+10-04-2015 19:04 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '("2", "Tier 2, Brawl-カ"), ("2", "Tier 2, Brawl-キ"), ("2", "Tier 2, Brawl-ク' at line 1
+10-04-2015 19:05 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '("2", "Tier 2, Brawl-カ"), ("2", "Tier 2, Brawl-キ"), ("2", "Tier 2, Brawl-ク' at line 1
+11-04-2015 15:58 Column count doesn't match value count at row 1
+11-04-2015 15:59 Column count doesn't match value count at row 1
