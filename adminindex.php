@@ -18,9 +18,19 @@
 		if($credentialsOK){
 			$_SESSION['innlogget'] = true ;
 		}else{
-			goto login ;
-		}//slutt if credentialsOK
-	}//slutt isset
+		?>
+		<h1>Admin-Innlogging - OTSGaming - SuperSmashBrosBrawl compo 2015-04-11</h1>
+		<h3>Hei-hå!</h3>
+		<form action="" method="post">
+			<input type="username" name="brukernavn" placeholder="Brukernavn" /><br />
+			<input type="password" name="passord" placeholder="Passord" /><br />
+			<input type="submit" name="loginKnapp" value="Login" />
+		</form>
+		<?php
+				die() ;
+		}
+		
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -160,19 +170,8 @@
 		
 		<?php
 			}//slutt isset
-			
-			}else{
-				login:
-		?>
-		<h1>Admin-Innlogging - OTSGaming - SuperSmashBrosBrawl compo 2015-04-11</h1>
-		<h3>Hei-hå!</h3>
-		<form action="" method="post">
-			<input type="username" name="brukernavn" placeholder="Brukernavn" /><br />
-			<input type="password" name="passord" placeholder="Passord" /><br />
-			<input type="submit" name="loginKnapp" value="Login" />
-		</form>
-		<?php
-			}//slutt ifelse isset
+		}
+	
 		?>
 	</body>
 </html>

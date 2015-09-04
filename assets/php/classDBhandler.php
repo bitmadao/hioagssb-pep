@@ -6,7 +6,7 @@
 		}//slutt logDBerror
 		
 		static function dbConnect(){
-			$Link = new mysqli('student.cs.hioa.no', 's236758', 'Password.', 's236758') ;
+			$Link = new mysqli('localhost', 'root', 'Password.', 'defaultDB') ;
 			if($Link->connect_error){
 				self::logDBerror($Link->connect_error) ;
 				die('Får ikke kontakt med server, sorry brwaa') ;
@@ -39,6 +39,7 @@
 
 			$brawlersLeftStanding = $occupancy ;
 			$currentTierBrawls = '' ;
+			$eliminationRatio = '' ;
 			$insertSQL = 'INSERT INTO Brawl (Tier, Caption) VALUES' ;
 			for($i = 1 ; $i <= $tierCount ; $i ++){
 				if($occupancy > 16){
@@ -144,11 +145,8 @@
 				$brawlerArray[$i]->setID($brawlerObject->ContestantID) ;
 				$brawlerArray[$i]->setSSBChar($brawlerObject->SSBChar) ;
 				$ssbCharUsed[$brawlerObject->SSBChar] = 0 ;
-//				$brawlerIDArray[$i] = $brawlerObject->ContestantID ;
-//				$brawlerCharArray[$i] = $brawlerObject->SSBChar ;
 			}//slutt
-//			return $brawlerArray ;
-//			var_dump($brawlerArray) ;
+			
 			$brawlerIndex = (count($brawlerArray)-1) ;
 			$getBrawlResult = $link->query($getBrawlsSQL) ;
 			if(!$getBrawlResult){
@@ -161,7 +159,7 @@
 				$brawlObject = $getBrawlResult->fetch_object() ;
 				$brawlArray[$brawlObject->BrawlID]['brawlers'] = array()  ;
 			}//slutt for 
-//			echo '<pre>', var_dump($brawlArray), '</pre>' ;
+
 			foreach($brawlArray as $key=>$brawlID){
 				$k = 0 ; 
 				while($k < 4){
@@ -219,6 +217,18 @@
 			echo '<pre>', var_dump($brawlArray),'</pre>' ;
 */		}//slutt populateTierOne()
 
+		static function numberOfTierMatches($Tier){
+			$countSQL = 'SELECT COUNT(*) AS "Brawls" FROM Brawl WHERE Tier ="' . $Tier .'"' ;
+			$link = self::dbConnect() ;
+			$countResult = $link->query($countSQL) ;
+			if(!$countResult){
+				self::logDBerror($link->error) ;
+			}//slutt !countResult
+			
+			$countObject = $countResult->fetch_object() ;
+			return $countObject->Brawls ;
+		}//slutt numberOfTierMatches
+		
 		static function getTierMatches($tier, $populated = true, $spaces = 4){
 			$link = self::dbConnect() ;
 			
@@ -376,7 +386,25 @@
 			$tableOfBrawlers.= '</table>' . "\n" ;
 			return $tableOfBrawlers ;
 		}//slutt tableOfBrawlers()
-		
+		static function adminTierOptions($Tier){
+			$tierOptionSQL = 'SELECT BrawlID, Caption FROM Brawl WHERE Tier = "' . $Tier .'"' ;
+			$link = self::dbConnect() ;
+			$tierOptionResult = $link->query($tierOptionSQL) ;
+			if(!$tierOptionResult){
+				self::logDBerror($link->error) ;
+				die('trøbbel med å laste kamper her azzzz') ;
+			}//slutt !result
+			$affectedRows = $link->affected_rows ;
+			if($affectedRows == 0){
+				echo '<option>Fant ingen brawls</option>' ;
+			}else{
+				for($i = 0 ; $i < $link->affected_rows ; $i ++){
+					$rowObject = $tierOptionResult->fetch_object() ;
+					echo '<option value="' . $rowObject->BrawlID . '">' . $rowObject->Caption . '</option>' ;
+				}//slutt for $i
+			}//slutt else	
+			$link->close() ;
+		}//slutt adminTierOptions()
 		static function characterOptions(&$wikiList = null){
 			$selectCharSQL = 'SELECT SSBCharID, EngName, JapName, SSBWiki FROM SSBChar' ;
 			$link = self::dbConnect() ;
@@ -395,7 +423,7 @@
 						if($rowObject->SSBCharID != 999){
 							echo '<option value="', $rowObject->SSBCharID, '">', $rowObject->EngName, ', (', $rowObject->JapName, ')</option>', "\n" ;
 							$list.= '<li id="wl' . $rowObject->SSBCharID . '">' . $rowObject->SSBWiki . '</li>' . "\n" ;
-						}//slutt if != 999
+						}//slutt if != 999	
 					}//slutt for
 					$list.= '</ul>' . "\n" ;
 				}//slutt if/else $affectedRows

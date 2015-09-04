@@ -80,4 +80,5 @@ INSERT INTO SSBChar (SSBCharID, EngName, JapName, SSBWiki) VALUES
 	("145", "Wii Fit Trainer", "Wii Fit トレーナー", "Wii_Fit_Trainer"),
 	("146", "Yoshi", "ヨッシー", "Yoshi"),
 	("147", "Zelda", "ゼルダ", "Zelda"),
-	("148", "Zero Suit Samus", "ゼロスーツサムス", "Zero_Suit_Samus") ;
+	("148", "Zero Suit Samus", "ゼロスーツサムス", "Zero_Suit_Samus"),
+	("999", "Random", "Random", "null") ;
